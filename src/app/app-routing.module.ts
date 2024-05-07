@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
+
 const routes: Routes = [
   {path:'',redirectTo:'/iniciar-sesion', pathMatch:'full'},
   {path:'inicio',component:DashboardComponent},

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { User } from 'src/app/services/auth/user';
 
@@ -9,7 +10,7 @@ import { User } from 'src/app/services/auth/user';
 })
 export class DashboardComponent implements OnInit {
   userLoginOn:boolean=false;
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,private router: Router) { }
 
   ngOnInit(): void {
     this.loginService.currentUserLoginOn.subscribe({
@@ -18,6 +19,10 @@ export class DashboardComponent implements OnInit {
       }
     });
 
+  }
+
+  logoff() {
+    this.router.navigateByUrl('/iniciar-sesion');
   }
 
 }

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { routes } from 'src/app/app.routes';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { User } from 'src/app/services/auth/user';
 import { UserService } from 'src/app/services/user/user.service';
 import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-personal-details',
@@ -77,5 +79,15 @@ export class PersonalDetailsComponent  {
       })
     }
   }
+
+
+ public menuItems = routes
+    .map((route) => route.children ?? [])
+    .flat()
+    .filter((route) => route && route.path)
+    .filter((route) => !route.path?.includes(':'));
+
+ 
+
 
 }
